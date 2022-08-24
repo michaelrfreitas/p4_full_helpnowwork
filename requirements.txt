@@ -1,0 +1,10 @@
+asgiref==3.5.2
+backports.zoneinfo==0.2.1
+dj-database-url==1.0.0
+Django==3.2.15
+gunicorn==20.1.0
+psycopg2==2.9.3
+pylint-django==2.5.3
+pylint-plugin-utils==0.7
+pytz==2022.2.1
+sqlparse==0.4.2
