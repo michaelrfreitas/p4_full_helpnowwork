@@ -1,0 +1,19 @@
+.nav-item:hover{
+    background-color: lightskyblue;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+.btn-active {
+    background-color: lightgreen;
+    font-weight: bold;
+    border: 2px solid black;
+}
+
+#navbarText {
+    font-size: 18px;
+}
+
+.fab {
+    font-size:40px;
+}

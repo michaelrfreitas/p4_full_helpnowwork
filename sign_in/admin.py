@@ -1,3 +1,12 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import CustomUser
+
+
+@admin.register(CustomUser)
+class UserAdmin (admin.ModelAdmin):
+    list_display = ('first_name', 'last_name', 'username',
+                    'email', 'profile', 'date_joined')
+    list_filter = ('profile', 'date_joined')
+    search_fields = ('first_name', 'last_name', 'username',
+                     'email', 'mobile', 'date_joined')
