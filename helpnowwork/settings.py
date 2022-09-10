@@ -72,7 +72,13 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_FORMS = {'signup': 'sign_in.forms.MyCustomSignupForm'}
 AUTH_USER_MODEL = 'sign_in.CustomUser'
 
-
+EMAIL_HOST = os.environ.get('SMTP_SERVER')
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('SMTP_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('SMTP_KEY')
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

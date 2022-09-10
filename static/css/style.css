@@ -1,13 +1,38 @@
-.nav-item:hover{
-    background-color: lightskyblue;
+.btn-nav:hover{
+    background-color: grey;
+    color: white;
     font-weight: bold;
-    border: 2px solid black;
+    border-radius: 1rem;
 }
 
-.btn-active {
-    background-color: lightgreen;
+.btn-nav {
+    display: block;
+    background-color: white;
+    color: black;
     font-weight: bold;
-    border: 2px solid black;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color .15s;
+}
+
+
+.btn-active {
+    display: block;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color .15s;
+    border-radius: 1rem;
+}
+
+a:hover {
+    color:white;
 }
 
 #navbarText {
@@ -16,4 +41,22 @@
 
 .fab {
     font-size:40px;
+}
+
+#logo{
+    width: 90px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.btn-change {
+    display: block;
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color .15s;
 }

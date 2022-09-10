@@ -26,7 +26,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><span class="brand">Help Now Work</span></a>
+            <img alt="" id="logo" src="{% static 'images/logo.png' %}">
+            <a class="navbar-brand" href="/"><span class="brand fw-bold mb-2 text-uppercase">Help Now Work</span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,45 +36,84 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         {% if request.resolver_match.url_name == 'home' %}
-                        <a class="nav-link active btn-active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="btn-active" aria-current="page" href="{% url 'home' %}">Home</a>
                         {% else %}
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        <a class="btn-nav" aria-current="page" href="{% url 'home' %}">Home</a>
                         {% endif %}
                     </li>
                     <li class="nav-item">
                         {% if request.resolver_match.url_name == 'about_us' %}
-                        <a class="nav-link active btn-active" aria-current="page" href="{% url 'about_us' %}">About
+                        <a class="btn-active" aria-current="page" href="{% url 'about_us' %}">About
                             Us</a>
                         {% else %}
-                        <a class="nav-link active" aria-current="page" href="{% url 'about_us' %}">About Us</a>
+                        <a class="btn-nav" aria-current="page" href="{% url 'about_us' %}">About Us</a>
                         {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Donate</a>
+                        {% if request.resolver_match.url_name == 'donate' %}
+                        <a class="btn-active" aria-current="page" href="#">Donate</a>
+                        {% else %}
+                        <a class="btn-nav" aria-current="page" href="#">Donate</a>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Support</a>
+                        {% if request.resolver_match.url_name == 'support' %}
+                        <a class="btn-active" aria-current="page" href="#">Support</a>
+                        {% else %}
+                        <a class="btn-nav" aria-current="page" href="#">Support</a>
+                        {% endif %}
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Portal</a>
+                        {% if request.resolver_match.url_name == 'portal' %}
+                        <a class="btn-active" aria-current="page" href="#">Portal</a>
+                        {% else %}
+                        <a class="btn-nav" aria-current="page" href="#">Portal</a>
+                        {% endif %}
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/accounts/logout/">Logout</a>
+                        {% if request.resolver_match.url_name == 'account_logout' %}
+                        <a class="btn-active" aria-current="page" href="/accounts/logout/">Logout</a>
+                        {% else %}
+                        <a class="btn-nav" aria-current="page" href="/accounts/logout/">Logout</a>
+                        {% endif %}
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link active" href="/accounts/login">Sign In</a>
+                        {% if request.resolver_match.url_name == 'account_login' %}
+                        <a class="btn-active" aria-current="page" href="/accounts/login">Sign In</a>
+                        {% elif request.resolver_match.url_name == 'account_signup' %}
+                        <a class="btn-active" aria-current="page" href="/accounts/signup">Sign Up</a>
+                        {% else %}
+                        <a class="btn-nav" aria-current="page" href="/accounts/login">Sign In</a>
+                        {% endif %}
                     </li>
                     {% endif %}
                 </ul>
                 <span class="navbar-text text-muted">
                     {% if user.is_authenticated %}
-                    <p>Welcome, {{ user.get_full_name }}.</p>
+                    <p class="text-dark mb-2">
+                        Welcome, <b>{{ user.get_full_name }}</b>.
+                    </p>
+                    <div class="d-grid gap-2">
+                        {% if request.resolver_match.url_name == 'account_change_password' %}
+                        <a class="btn btn-secondary btn-sm" aria-current="page" href="/accounts/password/change/">Change
+                            Password</a>
+                        {% else %}
+                        <a class="btn btn-outline-secondary btn-sm" aria-current="page"
+                            href="/accounts/password/change/">Change Password</a>
+                        {% endif %}
+                        {% if request.resolver_match.url_name == 'account_email' %}
+                        <a class="btn btn-secondary btn-sm" aria-current="page" href="/accounts/email/">Change
+                            Email</a>
+                        {% else %}
+                        <a class="btn btn-outline-secondary btn-sm" aria-current="page" href="/accounts/email/">Change
+                            Email</a>
+                        {% endif %}
+                    </div>
                     {% else %}
-                    <p>Welcome, Please log in.</p>
+                    <p class="text-dark mb-2">Welcome, Please log in.</p>
                     {% endif %}
-
                 </span>
             </div>
         </div>
