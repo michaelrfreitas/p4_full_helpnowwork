@@ -1,12 +1,43 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <H1>ABOUT US</H1>
-    </div>
+<section class="cards">
+    <div class="cards_single">
+        <div class="cards_front">
+            <h4 class="fw-bold text-uppercase">We are here to help!</h4>
+            <img src="/static/images/about_us.jpg" alt="">
+            <p>
+                I started my process in 2018, when I came to Ireland to study english for 2 months.
+                <br>
+                <b>Click here</b> to get more information regarding it.
+            </p>
+        </div>
+        <div class="cards_back">
 
-</div>
+            <h4>Michael Freitas, 31 years old</h4>
+            <h6>Developer and Creator of Help Now Work</h6>
+
+            <p>
+                I got a sponsorship in 2018. After it, I started a journey to migrate with my family to Ireland.
+
+                So, my idea with this project is to help people like me that didn't have a place to get information
+                regarding the work permit and migration process.
+
+                Now, I have a lot of friends that need this support and I'm doing it informally.
+
+                But I believe the Help Now Work can help more people at the same time.
+
+                <br>
+                <br>
+                Let me know if I can help.
+                Thank you!
+            </p>
+
+
+        </div>
+    </div>
+</section>
 
 {%endblock%}

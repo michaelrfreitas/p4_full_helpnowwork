@@ -1,12 +1,46 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
 
-<div class="container-fluid">
-    <div class="row">
-        <H1>HOME</H1>
-    </div>
+<section class="cards">
+    <div class="cards_single">
+        <div class="cards_front">
+            <h4 class="fw-bold text-uppercase">You need help to get your work permit?</h4>
+            <img src="/static/images/work_permit.jpeg" alt="">
+            <p>
+                Many people are looking for a job in Ireland to move from their country with family to Ireland.
+                But you need to do a lot of things and steps to get it:<br>
+                <b>Click here</b> to get more information regarding how the Help Now Work can help you with it.
+            </p>
+        </div>
+        <div class="cards_back">
+            <ul>
+                <li>
+                    Find a company that provide sponsorship.
+                </li>
+                <li>
+                    Some companies ask to you apply for the visa.
+                </li>
+                <li>
+                    How you can do it? How long is the process?
+                </li>
+                <li>
+                    Which documents and qualifications are required?
+                </li>
+            </ul>
+            <p>
+                Many questions as above and others going on.
+                Like me, I have tried to get these informations from Google or Government sites.
+                Unfortunately, most of the time I didn't find enough information or correct information.
+                This site <strong>HELP NOW WORK</strong> will help you with your questions.
+                You input your question and other contributors that have passed for that or know the answer can help you
+                in your process.
+                Welcome to Help Now Work!
 
-</div>
+            </p>
+        </div>
+    </div>
+</section>
 
 {%endblock%}
