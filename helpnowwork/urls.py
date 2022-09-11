@@ -26,5 +26,8 @@ urlpatterns = [
     path('donate', views.donate, name='donate'),
     path('support', views.support, name='support'),
     path('loggedcase', views.loggedcase, name='loggedcase'),
-    path('accounts/', include('allauth.urls')), 
+    path('accounts/', include('allauth.urls')),
+    path('contr_portal', views.contr_portal, name='contr_portal'),
+    path('admin_portal', views.admin_portal, name='admin_portal'),
+    path('user_portal', views.user_portal, name='user_portal'),
 ]

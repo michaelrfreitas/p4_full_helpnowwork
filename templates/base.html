@@ -65,13 +65,31 @@
                         {% endif %}
                     </li>
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        {% if request.resolver_match.url_name == 'portal' %}
-                        <a class="btn-active" aria-current="page" href="#">Portal</a>
+                        {% if user.profile == 'USER' %}
+                        <li class="nav-item">
+                            {% if request.resolver_match.url_name == 'user_portal' %}
+                            <a class="btn-active" aria-current="page" href="{% url 'user_portal' %}">Portal</a>
+                            {% else %}
+                            <a class="btn-nav" aria-current="page" href="{% url 'user_portal' %}">Portal</a>
+                            {% endif %}
+                        </li>
+                        {% elif user.profile == 'CONTRIBUTOR' %}
+                        <li class="nav-item">
+                            {% if request.resolver_match.url_name == 'contr_portal' %}
+                            <a class="btn-active" aria-current="page" href="{% url 'contr_portal' %}">Portal</a>
+                            {% else %}
+                            <a class="btn-nav" aria-current="page" href="{% url 'contr_portal' %}">Portal</a>
+                            {% endif %}
+                        </li>
                         {% else %}
-                        <a class="btn-nav" aria-current="page" href="#">Portal</a>
+                        <li class="nav-item">
+                            {% if request.resolver_match.url_name == 'admin_portal' %}
+                            <a class="btn-active" aria-current="page" href="{% url 'admin_portal' %}">Portal</a>
+                            {% else %}
+                            <a class="btn-nav" aria-current="page" href="{% url 'admin_portal' %}">Portal</a>
+                            {% endif %}
+                        </li>
                         {% endif %}
-                    </li>
                     <li class="nav-item">
                         {% if request.resolver_match.url_name == 'account_logout' %}
                         <a class="btn-active" aria-current="page" href="/accounts/logout/">Logout</a>

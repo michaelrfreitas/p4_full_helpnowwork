@@ -130,7 +130,14 @@ a:hover {
     left: 1px;
     top: 10px;
   }
-  
+
+#btn-card:hover {
+  background-color: white;
+  color:black;
+  border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
   
 @media (min-width: 768px) {
     .cards {
