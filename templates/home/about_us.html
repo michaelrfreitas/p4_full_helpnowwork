@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
@@ -7,7 +8,7 @@
     <div class="cards_single">
         <div class="cards_front">
             <h4 class="fw-bold text-uppercase">We are here to help!</h4>
-            <img src="/static/images/about_us.jpg" alt="">
+            <img src="{% static 'images/about_us.jpg' %}" alt="">
             <p>
                 I started my process in 2018, when I came to Ireland to study english for 2 months.
                 <br>

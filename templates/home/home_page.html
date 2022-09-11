@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% load i18n %}
 
 {% block content %}
@@ -7,7 +8,7 @@
     <div class="cards_single">
         <div class="cards_front">
             <h4 class="fw-bold text-uppercase">You need help to get your work permit?</h4>
-            <img src="/static/images/work_permit.jpeg" alt="">
+            <img src="{% static 'images/work_permit.jpeg' %}" alt="">
             <p>
                 Many people are looking for a job in Ireland to move from their country with family to Ireland.
                 But you need to do a lot of things and steps to get it:<br>
