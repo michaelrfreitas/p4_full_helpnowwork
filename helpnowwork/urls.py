@@ -16,18 +16,11 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from home import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.home, name='home'),
-    path('about_us', views.about_us, name='about_us'),
-    path('donate', views.donate, name='donate'),
-    path('support', views.support, name='support'),
-    path('loggedcase', views.loggedcase, name='loggedcase'),
     path('accounts/', include('allauth.urls')),
-    path('contr_portal', views.contr_portal, name='contr_portal'),
-    path('admin_portal', views.admin_portal, name='admin_portal'),
-    path('user_portal', views.user_portal, name='user_portal'),
+    path('', include('home.urls'), name="home-urls"),
+    path('', include('queries.urls'), name="queries-urls"),
 ]

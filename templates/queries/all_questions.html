@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="vh-50 gradient-custom">
+    <h3 class="fw-bold mb-2 text-uppercase text-center">All Questions</h3>
+    <div class="container py-5 h-50">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            {% for question in questions %}
+            <div class="col-4 col-md-2 col-lg-2 col-xl-3">
+
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <a class="text-white fw-bold text-wrap text-decoration-none" href="/view_question/{{ question.id }}">
+                    <div class="card-body p-4 text-center" id="btn-card">
+                        <div class="mb-md-4 mt-md-4 pb-4 ">
+                            <h4 class="text-uppercase">{{ question.question }}</h4>
+                            <p class="card-text">{{ question.category }}</p>
+                            <p class="card-text">From: {{ question.user.get_full_name }}</p>
+                            <p class="card-text text-muted h6">{{ question.created_on}}</p>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+
+            {% empty %}
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <h3 class="fw-bold mb-2 text-uppercase">No Questions Yet.</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+{%endblock%}

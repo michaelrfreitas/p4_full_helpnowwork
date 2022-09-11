@@ -139,6 +139,18 @@
     </nav>
 
     <main class="flex-shrink-0 main-bg">
+        
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
