@@ -157,7 +157,7 @@ a:hover {
     position: relative;
     perspective: 1000px;
     align-items: stretch;
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 
   .cards_single {
@@ -165,6 +165,6 @@ a:hover {
   }
 
   .card {
-    font-size: 2vw;
+    font-size: 1.5vw;
   }
 }

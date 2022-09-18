@@ -56,9 +56,9 @@ def question_list(request):
 
 
 @login_required(redirect_field_name='account_login')
-def edit_question(request, question_id):
+def edit_question(request, question_slug):
     """This is a docstring which describes the module"""
-    question = get_object_or_404(QuestionModel, id=question_id)
+    question = get_object_or_404(QuestionModel, slug=question_slug)
     if request.method == 'POST':
         form = QuestionForm(request.POST, instance=question)
         if form.is_valid():
@@ -74,9 +74,9 @@ def edit_question(request, question_id):
 
 
 @login_required(redirect_field_name='account_login')
-def delete_question(request, question_id):
+def delete_question(request, question_slug):
     """This is a docstring which describes the module"""
-    question = get_object_or_404(QuestionModel, id=question_id)
+    question = get_object_or_404(QuestionModel, slug=question_slug)
     question.delete()
     return redirect('question_list')
 
@@ -91,8 +91,8 @@ def all_questions(request):
 
 
 @login_required(redirect_field_name='account_login')
-def view_question(request, question_id):
-    question = QuestionModel.objects.filter(id=question_id)
+def view_question(request, question_slug):
+    question = QuestionModel.objects.filter(slug=question_slug)
     context = {
         'question': question
     }
