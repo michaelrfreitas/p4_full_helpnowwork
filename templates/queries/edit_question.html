@@ -25,8 +25,17 @@
 
                                 </form>
                             </div>
-
+                            {% for answer in answer %}
+                            <div class="text-white mb-2">
+                                <p class=" border rounded border-white text-start fs-6 m-0"> {{ answer.body }} </p>
+                                <p class="text-capitalize fs-6 m-0">From: {{ answer.contributor }}</p>
+                                <p class="text-capitalize fs-6 m-0">Created: {{ answer.created_on }}</p>
+                            </div>
+                            <hr>
+                            {% endfor %}
                         </div>
+                        <a class="text-center" href="{% url 'question_list' %}"><button
+                            class="btn btn-outline-light btn-lg">Back</button></a>
                     </div>
                 </div>
             </div>

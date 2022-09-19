@@ -12,16 +12,28 @@
                         {% for question in question %}
                         <div class="mb-md-5 mt-md-4 pb-5">
                             <h3 class="fw-bold mb-2 text-uppercase">{% trans "View Question" %}</h3>
-                            <p class="text-white-50 mb-5">{% trans 'Please see this question:' %}</p>
                             <div class="form-outline form-white mb-4">
                                 <p>Question: {{ question.question }}</p>
-                                <p>From: {{ question.user.get_full_name }}</p>
-                                <p>Category: {{ question.category }}</p>
-                                <p>Created: {{ question.created_on }}</p>
+                                <p class="fs-5">Category: {{ question.category }}</p>
+                                <p class="fs-6">From: {{ question.user.get_full_name }} <br> Created: {{ question.created_on }}</p>
+                                
                             </div>
+                            {% for answer in answer %}
+                            <div class="text-white mb-2">
+                                <p class= " border rounded border-white text-start fs-5 m-0"> {{ answer.body }} </p>
+                                <p class="text-capitalize fs-6 m-0">From: {{ answer.contributor }} - Created: {{ answer.created_on }}</p>
+                            </div>
+                            <hr>
+                            {% endfor %}
+                            {% if user.profile == 'CONTRIBUTOR' %}
+                            <a class="text-center" href="/send_answer/{{ question.slug }}"><button
+                                    class="btn btn-outline-light btn-lg">Send Answer</button></a>
+                            {% endif %}
                         </div>
                         {% endfor %}
                     </div>
+                    <a class="text-center" href="{% url 'all_questions' %}"><button
+                        class="btn btn-outline-light btn-lg">Back</button></a>
                 </div>
             </div>
         </div>

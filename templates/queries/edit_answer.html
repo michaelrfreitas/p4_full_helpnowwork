@@ -11,9 +11,9 @@
                     <div class="card-body p-5 text-center">
 
                         <div class="mb-md-5 mt-md-4 pb-5">
-                            <h3 class="fw-bold mb-2 text-uppercase">{% trans "Send Answer" %}</h3>
+                            <h3 class="fw-bold mb-2 text-uppercase">{% trans "Edit Answer" %}</h3>
 
-                            <p class="text-white mb-5">{% trans 'Please send your answer' %} to question: <br> <b>{{ question.question }}</b></p>
+                            <p class="text-white mb-5">{{ answer.subject_question }}</p>
                             <div class="form-outline form-white mb-4">
                                 <form method="POST">
                                     {% csrf_token %}
@@ -21,12 +21,15 @@
                                     {% if redirect_field_value %}
                                     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                                     {% endif %}
-                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">{% trans 'Send'%}</button>
+                                    <button class="btn btn-outline-light btn-lg px-5" type="submit">{% trans 'Update'%}</button>
 
                                 </form>
                             </div>
 
                         </div>
+
+                        <a class="text-center" href="{% url 'answer_list' %}"><button
+                            class="btn btn-outline-light btn-lg">Back</button></a>
                     </div>
                 </div>
             </div>
