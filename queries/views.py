@@ -5,6 +5,7 @@ from .models import QuestionModel, AnswerModel
 from .forms import QuestionForm, AnswerForm
 from django.utils.text import slugify
 from django.contrib import messages
+from django.db.models import Q
 
 
 @login_required(redirect_field_name='account_login')
@@ -63,7 +64,8 @@ def question_list(request):
 def edit_question(request, question_slug):
     """This is a docstring which describes the module"""
     question = get_object_or_404(QuestionModel, slug=question_slug)
-    answer = AnswerModel.objects.filter(subject_question=QuestionModel.objects.get(slug=question_slug), approved=True)
+    answer = AnswerModel.objects.filter(
+        subject_question=QuestionModel.objects.get(slug=question_slug), approved=True)
     if request.method == 'POST':
         form = QuestionForm(request.POST, instance=question)
         if form.is_valid():
@@ -149,6 +151,7 @@ def delete_answer(request, answer_id):
     answer.delete()
     return redirect('answer_list')
 
+
 @login_required(redirect_field_name='account_login')
 def approved_answer(request, answer_id):
     """This is a docstring which describes the module"""
@@ -156,3 +159,14 @@ def approved_answer(request, answer_id):
     answer.approved = not answer.approved
     answer.save()
     return redirect('answer_list')
+
+class SearchResultsView(ListView):
+    model = QuestionModel
+    template_name = "search_results.html"
+
+    def get_queryset(self):  
+        query = self.request.GET.get("q")
+        object_list = QuestionModel.objects.filter(
+            Q(question__contains=query) |  Q(category__contains=query)
+        )
+        return object_list

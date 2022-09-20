@@ -12,5 +12,6 @@ urlpatterns = [
     path('answer_list', views.answer_list, name='answer_list'),
     path('edit_answer/<answer_id>', views.edit_answer, name='edit_answer'),
     path('delete_answer/<answer_id>', views.delete_answer, name='delete_answer'),
-    path('approved_answer/<answer_id>', views.approved_answer, name='approved_answer')
+    path('approved_answer/<answer_id>', views.approved_answer, name='approved_answer'),
+    path("search/", views.SearchResultsView.as_view(), name="search_results"),
 ]
