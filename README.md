@@ -240,6 +240,9 @@ Here describes the main features of the website and what the user can expect whe
  
 ## Testing 
 
+### Coverage Report
+
+<img alt="Coverage Report" src="./static/images/Coverage report.png" width="50%">
 
 ### Bug
 
