@@ -171,7 +171,7 @@ Welcome to Help Now Work!
 <img alt="User Portal Page" src="./static/images/wireframe/User Portal.png" width="50%">
 
 #### Contributor Portal
-<img alt="Contributor Portal Page" src="./static/images/wireframe/Contributor Potal.png" width="50%">
+<img alt="Contributor Portal Page" src="./static/images/wireframe/Contributor Portal.png" width="50%">
 
 #### Administrator Portal
 <img alt="Administrator Portal Page" src="./static/images/wireframe/Administrator Portal.png" width="50%">
@@ -188,7 +188,10 @@ Welcome to Help Now Work!
 #### User list Page
 <img alt="User list Page" src="./static/images/wireframe/Remove Contributor.png" width="50%">
 
+### Database
 
+#### Model Diagram
+<img alt="Model Diagram" src="./static/images/model_database.png" width="50%">
 
 ## Features 
 
